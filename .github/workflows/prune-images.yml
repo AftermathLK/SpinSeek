@@ -1,0 +1,24 @@
+name: Prune old Docker images
+
+# Manual cleanup of ghcr.io/<owner>/spinseek: keeps only the newest N image versions.
+# Run it from the Actions tab → "Prune old Docker images" → Run workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      keep:
+        description: Number of most recent image versions to keep
+        required: true
+        default: '10'
+
+permissions:
+  packages: write
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/delete-package-versions@v5
+        with:
+          package-name: spinseek
+          package-type: container
+          min-versions-to-keep: ${{ inputs.keep }}

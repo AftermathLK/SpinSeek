@@ -1,0 +1,23 @@
+# Dependencies & build output
+node_modules/
+dist/
+
+# Local state and secrets
+data/
+config/
+.env
+.env.*
+!.env.example
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+.secret_key
+
+# Tooling noise
+*.log
+npm-debug.log*
+*.tsbuildinfo
+.DS_Store
+Thumbs.db

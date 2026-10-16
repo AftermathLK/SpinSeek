@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html,
+  body {
+    @apply bg-zinc-950 text-zinc-100;
+  }
+  ::selection {
+    @apply bg-violet-500/40;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3f3f46 transparent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-violet-600 text-white hover:bg-violet-500;
+  }
+  .btn-secondary {
+    @apply btn border border-zinc-700 bg-zinc-800/80 text-zinc-200 hover:border-zinc-600 hover:bg-zinc-700/80;
+  }
+  .btn-ghost {
+    @apply btn text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100;
+  }
+  .btn-danger {
+    @apply btn border border-red-500/30 bg-red-500/10 text-red-300 hover:bg-red-500/20;
+  }
+  .input {
+    @apply w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 transition-colors focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500/60;
+  }
+  .select {
+    @apply input cursor-pointer appearance-none bg-[length:16px] bg-[right_0.5rem_center] bg-no-repeat pr-8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  }
+  .label {
+    @apply mb-1 block text-xs font-medium uppercase tracking-wide text-zinc-400;
+  }
+  .card {
+    @apply rounded-xl border border-zinc-800 bg-zinc-900/60;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium leading-4;
+  }
+  .kbd {
+    @apply rounded border border-zinc-700 bg-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-400;
+  }
+  .checkbox {
+    @apply h-4 w-4 cursor-pointer rounded border-zinc-600 bg-zinc-800 accent-violet-500;
+  }
+}
+
+@layer utilities {
+  .skeleton {
+    @apply animate-pulse rounded bg-zinc-800/80;
+  }
+}

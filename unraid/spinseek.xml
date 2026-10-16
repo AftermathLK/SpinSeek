@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>spinseek</Name>
+  <Repository>ghcr.io/aftermathlk/spinseek:latest</Repository>
+  <Registry>https://github.com/AftermathLK/SpinSeek/pkgs/container/spinseek</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/AftermathLK/SpinSeek/issues</Support>
+  <Project>https://github.com/AftermathLK/SpinSeek</Project>
+  <Overview>Self-hosted Lidarr companion: search or batch-paste albums, get AI or Last.fm recommendations, preview tracks, and send exactly the albums you want (standard editions) to Lidarr with an indexer-safe search queue.</Overview>
+  <Category>MediaApp:Music Tools:</Category>
+  <WebUI>http://[IP]:[PORT:3080]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/AftermathLK/SpinSeek/main/unraid/icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI Port" Target="3080" Default="3080" Mode="tcp" Description="Web UI and API port." Type="Port" Display="always" Required="true" Mask="false">3080</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/spinseek" Mode="rw" Description="Holds spinseek.db (settings, library mirror, ratings, queue)." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/spinseek</Config>
+  <Config Name="Login username" Target="AUTH_USERNAME" Default="" Mode="" Description="Optional fixed login (set both username and password). Leave empty to create the login in the browser on first start; nothing is accessible until a login exists." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Login password" Target="AUTH_PASSWORD" Default="" Mode="" Description="Optional. Used together with the login username." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Encryption key (APP_SECRET)" Target="APP_SECRET" Default="" Mode="" Description="Optional. Encrypts stored API keys. Leave empty to auto-generate /config/.secret_key. Set before first start; changing it later means re-entering API keys." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Trusted reverse proxy (TRUST_PROXY)" Target="TRUST_PROXY" Default="" Mode="" Description="Optional. IP of your reverse proxy (e.g. 172.17.0.1) so login rate limiting sees real client IPs. Leave empty if you don't use one." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID that owns /config (99 = nobody)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID that owns /config (100 = users)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="UMASK" Target="UMASK" Default="022" Mode="" Description="File creation mask inside /config." Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
+</Container>

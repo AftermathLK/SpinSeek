@@ -1,0 +1,24 @@
+services:
+  spinseek:
+    build:
+      context: .
+      args:
+        NODE_VERSION: "22"
+    image: spinseek:latest
+    container_name: spinseek
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3080}:${PORT:-3080}"
+    environment:
+      - PUID=${PUID:-99}
+      - PGID=${PGID:-100}
+      - UMASK=${UMASK:-022}
+      - TZ=${TZ:-Etc/UTC}
+      - PORT=${PORT:-3080}
+      - AUTH_USERNAME=${AUTH_USERNAME:-}
+      - AUTH_PASSWORD=${AUTH_PASSWORD:-}
+      - APP_SECRET=${APP_SECRET:-}
+      - TRUST_PROXY=${TRUST_PROXY:-}
+    volumes:
+      # Unraid: CONFIG_PATH=/mnt/user/appdata/spinseek — holds spinseek.db
+      - ${CONFIG_PATH:-./config}:/config
